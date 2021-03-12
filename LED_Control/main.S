@@ -10,10 +10,10 @@
 
 main:
 	blink_LED:  //will toggle LED on and off at a rate according to which switches are high
-		bl led0_toggle
-		bl fetch_sw_vals
-		bl delay
-	b blink_LED
+		BL led0_toggle
+		BL fetch_sw_vals
+		BL delay
+	B blink_LED
 
 .end
 

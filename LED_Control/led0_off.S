@@ -4,12 +4,12 @@
 
 .text
 .global led0_off
-.equ LED_CTL, 0x41210000
+.equ LED_CNTRL, 0x41210000
 
 led0_off:
-	ldr r1, = LED_CTL
-	ldr r0, [r1]	//get current value
-	and r0, r0, #0	//clear the first bit to turn off
-	str r0, [r1]	//write back to LED_DATA
-	bx lr		//return from subroutine
+	LDR R1, = LED_CNTRL
+	LDR R0, [R1]	
+	AND R0, R0, #0	
+	STR R0, [R1]
+	BX LR		
 .end

@@ -1,5 +1,5 @@
 /*
-	Fetch current values from switches, shift up into the top 8 bits, store in R1
+	Fetch current values from switches, shift up into the top 8 bits, store in R0
 */
 
 .text
@@ -8,10 +8,10 @@
 .set SW_DATA, 0x41220000
 
 fetch_sw_vals:
-	ldr r1, = SW_DATA
-	ldr r0, [r1]  //load R0 from R1
-	cmp r0, #0
-	beq fetch_sw_vals
-	lsl r0, r0, #24  //shift data from switches left 24 bits
-	bx lr
+	LDR R1, = SW_DATA
+	LDR R0, [R1]
+	CMP R0, #0
+	BEQ fetch_sw_vals
+	LSL R0, R0, #24  //shift data from switches left 24 bits
+	BX LR
 .end
